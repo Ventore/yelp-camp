@@ -17,8 +17,8 @@ var commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index.js");
     
 var app = express();
-
-mongoose.connect("mongodb://yelp_camp:33278727@ds159180.mlab.com:59180/yelp_camp");
+console.log(process.env.DATABASE)
+mongoose.connect("mongodb://localhost/yelp_camp" || process.env.DATABASE);
 
 app.set('view engine', 'ejs');
 app.use(require("express-session")({
@@ -53,3 +53,4 @@ passport.deserializeUser(User.deserializeUser());
 app.listen(process.env.PORT, process.env.IP, function() {
   console.log('Server is running, crtl + C to exit...');
 });
+
