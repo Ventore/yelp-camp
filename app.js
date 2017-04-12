@@ -17,8 +17,8 @@ var commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index.js");
     
 var app = express();
-console.log(process.env.DATABASE)
-mongoose.connect("mongodb://localhost/yelp_camp" || process.env.DATABASE);
+
+mongoose.connect(process.env.DATABASE || "mongodb://localhost/yelp_camp");
 
 app.set('view engine', 'ejs');
 app.use(require("express-session")({
